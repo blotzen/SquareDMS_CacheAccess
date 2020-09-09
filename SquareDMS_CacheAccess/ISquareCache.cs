@@ -3,6 +3,10 @@ using System.Threading.Tasks;
 
 namespace SquareDMS_CacheAccess
 {
+    /// <summary>
+    /// This interface contains all the necessary Methods
+    /// for interaction with the Cache layer.
+    /// </summary>
     public interface ISquareCache
     {
         /// <summary>

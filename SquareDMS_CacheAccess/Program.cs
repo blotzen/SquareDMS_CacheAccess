@@ -14,17 +14,21 @@ namespace SquareDMS_CacheAccess
 
             await redis.ConnectAsync();
 
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
+            for (int i = 0; i < 20000; i++)
+            {
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
 
-            await redis.PutDocumentPayloadAsync(1, file);
+                await redis.PutDocumentPayloadAsync(i, file);
 
-            sw.Stop();
+                sw.Stop();
+                Console.WriteLine($"Put in : {sw.ElapsedMilliseconds} ms");
 
-            await redis.DisconnectAsync();
-
-            Console.WriteLine($"Put in : {sw.ElapsedMilliseconds} ms");
-
+                //System.Threading.Thread.Sleep(500);
+            }
+         
+            await redis.DisconnectAsync();   
+            
             Console.ReadLine();
         }
     }

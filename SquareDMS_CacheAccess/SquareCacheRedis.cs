@@ -4,7 +4,11 @@ using System.Threading.Tasks;
 
 namespace SquareDMS_CacheAccess
 {
-    internal class SquareCacheRedis : ISquareCache
+    /// <summary>
+    /// Implementation of the
+    /// cache access for redis.
+    /// </summary>
+    public class SquareCacheRedis : ISquareCache
     {
         /// <summary>
         /// The connection Multiplexer obj is comlex and needs to be stored.
